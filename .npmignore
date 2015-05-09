@@ -6,5 +6,7 @@ test/
 .gitignore
 .jshintrc
 .travis.yml
+credentials.json
+credentials-sample.json
 gulpfile.js
 npm-debug.log

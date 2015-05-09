@@ -60,6 +60,8 @@ gulp.task('lint', function () {
 
 gulp.task('test', ['clean'], function (done) {
 
+    require('./test/fixtures/credentials.js');
+
     var coverageVariable = '$$cov_' + new Date().getTime() + '$$';
 
     gulp.src(paths.libJsFiles)
@@ -87,6 +89,8 @@ gulp.task('test', ['clean'], function (done) {
 });
 
 gulp.task('test-without-coverage', function () {
+
+    require('./test/fixtures/credentials.js');
 
     return gulp.src(paths.specFiles)
         .pipe(mocha())
