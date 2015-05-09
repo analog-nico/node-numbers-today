@@ -32,6 +32,8 @@ describe('The Access entity', function () {
 
     it('can be initialized with username and password', function () {
 
+        this.timeout(5000);
+
         return numbersToday(process.env.CRED_USERNAME, process.env.CRED_PASSWORD)
             .promise()
             .then(function (access) {

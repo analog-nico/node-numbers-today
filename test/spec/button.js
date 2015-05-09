@@ -32,4 +32,23 @@ describe('The Button entity', function () {
 
     });
 
+    it('can hit the button and get the current hits', function () {
+
+        this.timeout(5000);
+
+        var hitsBefore;
+
+        return numbersToday(process.env.CRED_TOKEN)
+            .button('signups')
+            .hits(function (hits) {
+                hitsBefore = hits;
+            })
+            .hit()
+            .hits(function (hits) {
+                expect(hits).to.eql(hitsBefore+1);
+            })
+            .promise();
+
+    });
+
 });
