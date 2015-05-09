@@ -29,7 +29,6 @@ gulp.task('watch', function () {
 
     gulp.watch([
         paths.libJsFiles,
-        paths.gulpfile,
         paths.specFiles,
         paths.fixtureFiles,
         paths.jshintrc
@@ -61,6 +60,10 @@ gulp.task('lint', function () {
 gulp.task('test', ['clean'], function (done) {
 
     require('./test/fixtures/credentials.js');
+
+    console.log(process.env.CRED_USERNAME);
+    console.log(process.env.CRED_PASSWORD);
+    console.log(process.env.CRED_TOKEN);
 
     var coverageVariable = '$$cov_' + new Date().getTime() + '$$';
 
