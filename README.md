@@ -27,7 +27,10 @@ numbersToday('username', 'password')
 
 numbersToday('token')
 	.button('moneyspent')
-	.hit(15.5, 'NY');
+	.hit(15.5, 'NY')
+    .hits(function (hits) {
+        console.log(hits);
+    });
 
 // Support for other API features forthcoming.
 ```
@@ -48,7 +51,8 @@ If you want to debug a test you should use `gulp test-without-coverage` to run a
 
 ## Change History
 
-Not yet realeased.
+- v0.1.0 (2015-05-09)
+    - Initial version
 
 ## License (ISC)
 
