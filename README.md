@@ -2,7 +2,7 @@
 
 [numbers.today API](https://numbers.today/api/documentation/) client library for node.js/io.js
 
-[![Build Status](https://travis-ci.org/analog-nico/node-numbers-today.svg?branch=master)](https://travis-ci.org/analog-nico/node-numbers-today) [![Coverage Status](https://coveralls.io/repos/analog-nico/node-numbers-today/badge.png)](https://coveralls.io/r/analog-nico/node-numbers-today?branch=master) [![Dependency Status](https://david-dm.org/analog-nico/node-numbers-today.svg)](https://david-dm.org/analog-nico/node-numbers-today)
+[![Build Status](https://travis-ci.org/analog-nico/node-numbers-today.svg?branch=master)](https://travis-ci.org/analog-nico/node-numbers-today) [![Coverage Status](https://coveralls.io/repos/analog-nico/node-numbers-today/badge.svg?branch=master)](https://coveralls.io/r/analog-nico/node-numbers-today?branch=master) [![Dependency Status](https://david-dm.org/analog-nico/node-numbers-today.svg)](https://david-dm.org/analog-nico/node-numbers-today)
 
 ## Installation
 
@@ -16,7 +16,21 @@ npm install numbers-today --save
 
 ## Getting Started
 
-Description forthcoming.
+``` js
+var numbersToday = require('numbers-today');
+
+// Counting
+
+numbersToday('username', 'password')
+    .button('blogposts')
+	.hit();
+
+numbersToday('token')
+	.button('moneyspent')
+	.hit(15.5, 'NY');
+
+// Support for other API features forthcoming.
+```
 
 ## Contributing
 
