@@ -61,10 +61,6 @@ gulp.task('test', ['clean'], function (done) {
 
     require('./test/fixtures/credentials.js');
 
-    console.log(process.env.CRED_USERNAME);
-    console.log(process.env.CRED_PASSWORD);
-    console.log(process.env.CRED_TOKEN);
-
     var coverageVariable = '$$cov_' + new Date().getTime() + '$$';
 
     gulp.src(paths.libJsFiles)
