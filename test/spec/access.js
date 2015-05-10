@@ -44,4 +44,19 @@ describe('The Access entity', function () {
 
     });
 
+    it('should reject invalid credentials', function () {
+
+        this.timeout(5000);
+
+        return numbersToday(process.env.CRED_USERNAME, 'invalid password')
+            .promise()
+            .then(function () {
+                throw new Error('Expected rejection.');
+            },
+            function () {
+                // Expected rejection
+            });
+
+    });
+
 });
