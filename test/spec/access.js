@@ -7,7 +7,7 @@ describe('The Access entity', function () {
 
     it('should reject too many parameters', function () {
 
-        numbersToday(process.env.CRED_TOKEN, true, false)
+        return numbersToday(process.env.CRED_TOKEN, true, false)
             .promise()
             .then(function () {
                 throw new Error('Expected rejection.');
@@ -55,6 +55,15 @@ describe('The Access entity', function () {
             },
             function () {
                 // Expected rejection
+            });
+
+    });
+
+    it('should provide .error()', function (done) {
+
+        numbersToday(process.env.CRED_TOKEN, true, false)
+            .error(function () {
+                done();
             });
 
     });

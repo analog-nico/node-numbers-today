@@ -1,5 +1,7 @@
 'use strict';
 
+var _ = require('lodash');
+
 var numbersToday = require('../../lib/index.js');
 
 
@@ -171,6 +173,51 @@ describe('The Button entity', function () {
                     throw err;
                 }
                 // Else: Expected rejection
+            });
+
+    });
+
+    it('should provide .error()', function (done) {
+
+        numbersToday(process.env.CRED_TOKEN)
+            .button('does-not-exist')
+            .error(function () {
+                done();
+            });
+
+    });
+
+    it('should work with multiple .error() - 1', function (done) {
+
+        numbersToday(process.env.CRED_TOKEN)
+            .error(function () {
+                done(new Error('.error() called too early.'));
+            })
+            .button('does-not-exist')
+            .error(function () {
+                done();
+            });
+
+    });
+
+    it('should work with multiple .error() - 2', function (done) {
+
+        numbersToday(process.env.CRED_TOKEN)
+            .error(_.noop())
+            .button('signups')
+            .error(function () {
+                done(new Error('.error() called too early.'));
+            })
+            .hits(_.noop())
+            // FIXME: Not yet supported.
+            //.error(function () {
+            //    done(new Error('.error() called too early.'));
+            //})
+            .hits(function (hits) {
+                throw Error();
+            })
+            .error(function () {
+                done();
             });
 
     });

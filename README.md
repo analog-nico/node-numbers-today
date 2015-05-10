@@ -30,6 +30,9 @@ numbersToday('token')
 	.hit(15.5, 'NY')
     .hits(function (hits) {
         console.log(hits);
+    })
+	.error(function (err) {
+        // Handle any error here.
     });
 
 // Support for other API features forthcoming.
@@ -41,9 +44,13 @@ To set up your development environment for numbers-today:
 
 1. Clone this repo to your desktop,
 2. in the shell `cd` to the main folder,
-3. hit `npm install`,
-4. hit `npm install gulp -g` if you haven't installed gulp globally yet, and
-5. run `gulp dev`. (Or run `node ./node_modules/.bin/gulp dev` if you don't want to install gulp globally.)
+3. hit `npm install`, and
+4. hit `npm install gulp -g` if you haven't installed gulp globally yet.
+5. Make a copy of `credentials-sample.json` with the name `credentials.json` and enter the following data:
+    - Your username and password of your [numbers.today](https://numbers.today) account.
+    - Your API token which your find on the [documentation page](https://numbers.today/api/documentation/) if you are logged in.
+    - [Create a button](https://numbers.today/count_buttons/new/) called "signups" which is used by the tests.
+6. Run `gulp dev`. (Or run `node ./node_modules/.bin/gulp dev` if you don't want to install gulp globally.)
 
 `gulp dev` watches all source files and if you save some changes it will lint the code and execute all tests. The test coverage report can be viewed from `./coverage/lcov-report/index.html`.
 
@@ -51,6 +58,8 @@ If you want to debug a test you should use `gulp test-without-coverage` to run a
 
 ## Change History
 
+- v0.1.1 (2015-05-09)
+    - Improved error handling
 - v0.1.0 (2015-05-09)
     - Initial version
 
