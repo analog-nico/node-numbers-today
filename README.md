@@ -1,3 +1,5 @@
+**WARNING**: This repository is not maintained anymore.
+
 # numbers-today
 
 [numbers.today API](https://numbers.today/api/documentation/) client library for node.js/io.js
